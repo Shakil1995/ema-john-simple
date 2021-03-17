@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Cart = (props) => {
     const cart=props.cart;
-    console.log(cart);
+    // console.log(cart);
 
     // const totalPrice = cart.reduce((total,prd) =>total+prd.price,0);
     // const total= cart.reduce( (total,prd) => total +prd.price,0);
@@ -38,15 +38,16 @@ const formateNumber= num =>{
         <div>
           <h1>Order Summary</h1>
         <h5>Item Ordered : {cart.length}</h5>
-        <p>Product Price : {formateNumber(total)}</p>
-        <p>Shipping Price : {formateNumber(shipping)}</p>
-        <p> <small> Tax+Vat  : {formateNumber(tax)}</small></p>
-        <p>Final Price :{formateNumber(finalPrice)}</p>
+        <p>Product Price : ${formateNumber(total)}</p>
+        <p>Shipping Price : ${formateNumber(shipping)}</p>
+        <p> <small> Tax+Vat  : ${formateNumber(tax)}</small></p>
+        <p>Final Price :${formateNumber(finalPrice)}</p>
 
-    
-        <Link to="/review">
-        <button className="main-button"> Review Order</button>
-        </Link>
+    <br/>
+    {
+        props.children
+    }
+       
         </div>
     );
 };
